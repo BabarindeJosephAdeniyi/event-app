@@ -4,66 +4,64 @@
   align-items: center;
   justify-content: center;
   min-height: 90vh;
-  background: #041e23;
+  background: #062830;
   padding: 20px;
-   background: #062830;
-
-  margin: auto;
+  margin: 20px auto;
   border-radius: 16px;
-  width: 500px;
+  width: 90%;
+  max-width: 500px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  margin-bottom: 20px;
   transition: transform 0.2s ease-in-out;
 }
 
 .ticket-card {
   background: #062830;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: #e5f3f8;
   border-radius: 16px;
-  line-height: 30px;
-  padding: 25px 35px;
-  width: 500px;
-  transition: transform 0.2s ease-in-out;
+  line-height: 28px;
+  padding: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .ticket-card img {
-  margin-right: 50px;
- 
+  margin-right: 20px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
 }
-/* 
-.ticket-card:hover {
-  transform: scale(1.02);
-} */
 
 .ticket-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 15px;
   color: #00cfff;
+  text-align: center;
 }
 
 .qr-code {
-  margin-bottom: 20px;
+  margin: 20px 0;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .ticket-actions {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
 
-.download-btn,
-.book-another-btn {
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+.ticket-actions button,
+.ticket-actions a {
+  width: 100%;
+  text-align: center;
 }
 
 .download-btn {
@@ -92,4 +90,24 @@
   color: #e5f3f8;
   text-align: center;
   margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+  .ticket-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .ticket-card img {
+    margin: 0 0 15px 0;
+  }
+
+  .ticket-actions {
+    flex-direction: column;
+  }
+
+  .ticket-title {
+    font-size: 1.4rem;
+  }
 }
