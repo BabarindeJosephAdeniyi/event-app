@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.event-detail {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #0c1c24;
+  color: #e6f4f1;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.307);
+  line-height: 1.6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.event-detail h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #2dd4bf;
+  font-weight: 700;
+  text-align: center;
+}
+
+.event-detail p {
+  font-size: 1.2rem;
+  margin: 12px 0;
+  color: #2dd4bf;
+  font-weight: 500;
+}
+
+/* Sections */
+.event-detail > div {
+  margin-bottom: 25px;
+  padding: 18px;
+  background: #11252f;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.event-detail > div:hover {
+  transform: translateY(-3px);
+  border-color: rgba(45, 212, 191, 0.4);
+}
+
+/* Lists */
+.event-detail ul {
+  list-style: disc;
+  display: block;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: start; */
+  text-align: justify;
+  margin-left: 30px;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.event-detail ul li {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #b7c8c3;
+}
+
+
+
+.event-detail button {
+  padding: 10px 18px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2dd4bf, #14b8a6);
+  color: #0c1c24;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(45, 212, 190, 0.156);
+}
+
+.event-detail button:hover {
+  background: linear-gradient(135deg, #22c1ac, #0d9488);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 212, 190, 0.249);
+}

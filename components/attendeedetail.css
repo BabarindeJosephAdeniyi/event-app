@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.preview-img {
+  width: 150px;           
+  height: 150px;
+  border-radius: 50%;      
+  object-fit: cover;      
+  border: 3px solid #06b6d4; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.preview-img:hover {
+  transform: scale(1.05);
+}
+
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box label {
+    color: white;
+    font-size: 17px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.input-box input {
+    padding: 18px;
+    border: 1px solid rgb(17, 207, 207);
+    background-color: transparent;
+    outline: none;
+    border-radius: 20px;
+    font-size: 17px;
+    color: white;
+    margin: 15px 0;
+}
+
+.input-box input::placeholder {
+    color: rgb(121, 118, 118);
+    font-size: 17px;
+}
+
+.input-boxx input{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 17px;
+    padding-left: 7px;
+    color: white;
+    margin: 15px 0;
+}
+
+.mail {
+    margin-left: 15px;
+}
+
+.itemss {
+    display: flex;
+    border: 1px solid rgb(17, 207, 207);
+    border-radius: 20px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+textarea {
+    background-color: transparent;
+    outline: none;
+    margin: 20px 0;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 10px;
+    color: white;
+    resize: none;
+    border: 2px solid rgb(17, 207, 207);
+}
+
+p {
+    color: red;
+    font-size: small;
+    margin-left: 10px;
+}
+
+.action-buttons a {
+    color: white;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+}
+
