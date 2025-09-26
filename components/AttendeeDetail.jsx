@@ -165,6 +165,7 @@ const AttendeeDetail = () => {
               <input
                 type="email"
                 placeholder="hello@avioflagos.io"
+                style={{width:"100%", height:"100%", backgroundColor:"transparent", padding:"15px 0"}}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />

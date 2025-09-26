@@ -68,6 +68,7 @@
   background: #00cfff;
   color: #041e23;
   font-weight: bold;
+  padding: 15px 0;
 }
 
 .download-btn:hover {
@@ -79,6 +80,8 @@
   border: 2px solid #00cfff;
   color: #00cfff;
   font-weight: bold;
+  text-decoration: none;
+  padding: 15px 0;
 }
 
 .book-another-btn:hover {
