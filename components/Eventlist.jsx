@@ -10,10 +10,10 @@ const EventList = () => {
     
      <div className="event-list">
       {events.map((event) => (
-        <div key={event.id} className="event-card">
+        <div  key={event.id}  className="event-card" >
           <div className="event-card-header">
-            <h3>{event.title}</h3>
-            <span className="event-date">{event.date}</span>
+            <span  className="event-date">{event.date}</span>
+            <img style={{width:"100%"}} src={event.imageUrl} loading="lazy" alt="" />
           </div>
           <p className="event-description">{event.description}</p>
           <div className="event-footer">

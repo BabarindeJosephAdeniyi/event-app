@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Upload, Mail } from "lucide-react";
 import "./attendeedetail.css";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import axios from "axios";
 
 const AttendeeDetail = () => {
   const [, setFile] = useState(null);
@@ -13,6 +12,7 @@ const AttendeeDetail = () => {
   const [nameerr, setNameerr] = useState("");
   const [emailerr, setEmailerr] = useState("");
   const [texterr, setTexterr] = useState("");
+  const [error, setError] = useState('')
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,25 +21,33 @@ const AttendeeDetail = () => {
   const nameRegex = /^[a-zA-Z\s'-]{2,50}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  const handleImageUpload = async (e) => {
-    const selectedFile = e.target.files[0];
-    if (!selectedFile) return;
+   const handleImageUpload = () => {
 
-    const formData = new FormData();
-    formData.append("file", selectedFile);
-    formData.append("upload_preset", "event-app");
+          if (!window.cloudinary) {
+        setError("Upload service not available. Please try again later.");
+        return;
+      }
 
-    try {
-      const res = await axios.post(
-        "https://api.cloudinary.com/v1_1/dkutqxpfi/image/upload",
-        formData
-      );
-      setFile(selectedFile);
-      setImageUrl(res.data.secure_url);
-    } catch (err) {
-      console.error("Image upload error:", err);
-      alert("Image upload failed. Please try again.");
-    }
+      try {
+         window.cloudinary.openUploadWidget(
+      {
+        cloudName: "deiervqwx",
+        uploadPreset: "events-tickets",
+        sources: ["local", "camera"],
+        multiple: false,
+      },
+      (error, result) => {
+        if (!error && result && result.event === "success") {
+          setFile(result.info.original_filename);
+          setImageUrl(result.info.secure_url);
+        }
+      }
+    );
+      } catch (error) {
+        console.log(error)
+        setError("Something went wrong. Please try uploading again.")
+        
+      }
   };
 
  const handleSubmit = (e) => {
@@ -112,20 +120,14 @@ const AttendeeDetail = () => {
           <div style={{ marginBottom: "10px" }}>Upload Profile Photo</div>
 
           <div className="event-cards">
-            <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
-              <input
-                id="fileInput"
-                type="file"
-                accept="image/*"
-                style={{ display: "none" }}
-                onChange={handleImageUpload}
-              />
+            <label htmlFor="fileInput" onClick={handleImageUpload} style={{ cursor: "pointer" }}>
+             
 
               {!imageUrl && (
                 <>
                   <Upload style={{ color: "white", margin: "0 auto", marginBottom: "20px" }} size={40} />
                   <p style={{ color: "white", fontSize: "20px" }}>
-                    Drag & drop or click to upload
+                  Click to upload
                   </p>
                 </>
               )}
@@ -140,6 +142,8 @@ const AttendeeDetail = () => {
                   />
                 </div>
               )}
+
+              <p>{error}</p>
             </label>
           </div>
 
